@@ -155,7 +155,7 @@ html, body, .box-100-height {
 }
 
 #content .datetime-separator:before {
-    content: '';;
+    content: '';
     display: block;
     width: 100%;
     border-bottom: 1px solid #cccccc;
