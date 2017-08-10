@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -8,18 +7,43 @@ import 'rxjs/add/operator/map';
   templateUrl: 'list.html'
 })
 export class ListPage {
- public livros: any[];
+  public livros: any[];
 
-  constructor(public navCtrl: NavController, private http: Http) {
+  constructor(public navCtrl: NavController) {
 
   }
 
-  ngOnInit() {
-    this.http.get('https://www.googleapis.com/books/v1/volumes/2W6WqK2dP1IC')
-      .map((res: Response) => {
-        let body = res.json();
-        return body || {};
-      })
-      .subscribe(livros => {this.livros = livros; console.log(livros)})
-  }
+  items = [
+    {
+      ano: '2000',
+      title: "O Ladrão de Raios",
+      author: "Rick Riordan",
+      image: "assets/img/1.jpeg",
+    },
+    {
+      ano: '2001',
+      title: "O Mar de Monstros",
+      author: "Rick Riordan",
+      image: "assets/img/2.jpeg",
+    },
+    {
+      ano: '2002',
+      title: "A Maldição do Titãs",
+      author: "Rick Riordan",
+      image: "assets/img/3.jpeg",
+    },
+    {
+      ano: '2003',
+      title: "A Batalha do Labirinto",
+      author: "Rick Riordan",
+      image: "assets/img/4.jpeg",
+    },
+    {
+      ano: '2004',
+      title: "O Último Olimpiano",
+      author: "Rick Riordan",
+      image: "assets/img/5.jpeg",
+    }
+  ];
+
 }
