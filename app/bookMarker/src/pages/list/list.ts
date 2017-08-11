@@ -45,5 +45,7 @@ export class ListPage {
       image: "assets/img/5.jpeg",
     }
   ];
-
+  goToCadastro() {
+    this.navCtrl.push('CadastroPage');
+  }
 }

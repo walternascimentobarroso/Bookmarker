@@ -11,6 +11,7 @@ import { AboutPage } from '../pages/about/about';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IntroPageModule } from "../pages/intro/intro.module";
+import { PipesModule } from '../pipes/pipes.module'
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { IntroPageModule } from "../pages/intro/intro.module";
     BrowserModule,
     HttpModule,
     IntroPageModule,
+    PipesModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
