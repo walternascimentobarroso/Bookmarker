@@ -14,13 +14,13 @@
     <ion-searchbar placeholder="Buscar" (ionInput)="onInput($event)" debounce="1000">
     </ion-searchbar>
 
-    <ion-item *ngFor="let poke of pokes | initial">
+    <ion-item *ngFor="let livro of livros | initial">
       <ion-thumbnail item-start>
-        <img *ngIf="!!poke.volumeInfo.imageLinks" [src]="poke.volumeInfo.imageLinks.smallThumbnail">
+        <img *ngIf="!!livro.volumeInfo.imageLinks" [src]="livro.volumeInfo.imageLinks.smallThumbnail">
       </ion-thumbnail>
-      <h2>{{ poke.volumeInfo.title }}</h2>
+      <h2>{{ livro.volumeInfo.title }}</h2>
       
-      <p *ngIf="!!poke.volumeInfo.authors">{{ poke.volumeInfo.authors[0] }} • {{ poke.volumeInfo.publishedDate }}
+      <p *ngIf="!!livro.volumeInfo.authors">{{ livro.volumeInfo.authors[0] }} • {{ livro.volumeInfo.publishedDate }}
       </p>
       <button ion-button clear item-end><ion-icon name="add-circle"></ion-icon></button>
     </ion-item>

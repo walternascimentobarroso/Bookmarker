@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 })
 export class CadastroPage {
 
-  public pokes: any[];
+  public livros: any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
   }
@@ -26,6 +26,6 @@ export class CadastroPage {
         let body = res.json();
         return body || {};
       })
-      .subscribe(pokes => this.pokes = pokes.items);
+      .subscribe(livros => this.livros = livros.items);
   }
 }
