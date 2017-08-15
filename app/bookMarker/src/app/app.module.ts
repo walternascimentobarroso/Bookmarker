@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IntroPageModule } from "../pages/intro/intro.module";
 import { PipesModule } from '../pipes/pipes.module'
+import { ConfigProvider } from '../providers/config/config';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PipesModule } from '../pipes/pipes.module'
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ConfigProvider
   ]
 })
 export class AppModule {}
