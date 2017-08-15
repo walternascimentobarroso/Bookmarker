@@ -11,8 +11,8 @@ import { AboutPage } from '../pages/about/about';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IntroPageModule } from "../pages/intro/intro.module";
-import { PipesModule } from '../pipes/pipes.module'
-import { ConfigProvider } from '../providers/config/config';
+import { PipesModule } from '../pipes/pipes.module';
+import { BooksReadProvider } from '../providers/books-read/books-read';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { ConfigProvider } from '../providers/config/config';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ConfigProvider
+    BooksReadProvider
   ]
 })
 export class AppModule {}

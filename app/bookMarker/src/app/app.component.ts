@@ -7,18 +7,27 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { AboutPage } from '../pages/about/about';
 import { IntroPage } from "../pages/intro/intro";
+import { ConfigProvider } from "../providers/config/config";
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [
+    ConfigProvider
+  ]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = IntroPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(
+    public platform: Platform,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    public configProvider: ConfigProvider
+  ) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -34,6 +43,15 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+
+      let config = this.configProvider.getConfigData();
+      if (config == null) {
+        this.rootPage = IntroPage;
+        this.configProvider.setConfigData(false);
+      } else {
+        this.rootPage = HomePage;
+      }
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

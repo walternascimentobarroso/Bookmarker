@@ -9,8 +9,8 @@ export class Initial implements PipeTransform {
    * Takes a value and returns first letter
    */
   transform(value, args) {
-    console.log(value);
-    console.log(args);
+    //console.log(value);
+    //console.log(args);
     let keys = [];
     for (var k in value) {
       if (value[k].concluido == args) {

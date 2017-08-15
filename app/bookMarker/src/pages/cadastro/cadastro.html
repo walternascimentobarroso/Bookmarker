@@ -11,7 +11,7 @@
   <ion-list>
 
 
-    <ion-searchbar placeholder="Buscar" (ionInput)="onInput($event)" debounce="1000">
+    <ion-searchbar placeholder="Buscar" (ionInput)="onInput($event)" debounce="500">
     </ion-searchbar>
 
     <ion-item *ngFor="let livro of livros | initial">
@@ -19,10 +19,10 @@
         <img *ngIf="!!livro.volumeInfo.imageLinks" [src]="livro.volumeInfo.imageLinks.smallThumbnail">
       </ion-thumbnail>
       <h2>{{ livro.volumeInfo.title }}</h2>
-      
+
       <p *ngIf="!!livro.volumeInfo.authors">{{ livro.volumeInfo.authors[0] }} • {{ livro.volumeInfo.publishedDate }}
       </p>
-      <button ion-button clear item-end><ion-icon name="add-circle"></ion-icon></button>
+      <button ion-button clear item-end (click)="addBook(livro.volumeInfo)"><ion-icon name="add-circle"></ion-icon></button>
     </ion-item>
   </ion-list>
 </ion-content>
